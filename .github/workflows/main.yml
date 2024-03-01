@@ -1,4 +1,4 @@
-name: Run The Tests
+name: Run The Tests, Build the image
 on:
   push:
     branches: -master
@@ -22,6 +22,7 @@ jobs:
         run: |
           cd ciphers_project
           python3 manage.py test
+
       - name: Build and push the image
         run: |
           docker login --username kranthi2088 --password ${{secrets.ACCESS_TOKEN1}} ghcr.io
